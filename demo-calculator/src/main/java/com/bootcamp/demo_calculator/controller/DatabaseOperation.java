@@ -16,4 +16,7 @@ public interface DatabaseOperation {
 
   @GetMapping(value = "/database/getvalue")
   String[] getValue();
+
+  @GetMapping(value = "/database/size")
+  int getSize();
 }

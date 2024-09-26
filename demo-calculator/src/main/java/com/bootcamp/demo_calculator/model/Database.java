@@ -17,6 +17,9 @@ public class Database {
   public static String addString(String string){
     String[] newArray = Arrays.copyOf(strings, strings.length + 1);
     newArray[newArray.length - 1] = string;
+    strings = newArray;
     return newArray[newArray.length-1];
   }
+
+  
 }

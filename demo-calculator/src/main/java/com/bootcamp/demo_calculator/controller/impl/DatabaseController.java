@@ -40,4 +40,9 @@ public class DatabaseController implements DatabaseOperation{
   public String[] getValue(){
     return databaseService.getValue();
   }
+
+  @Override
+  public int getSize(){
+    return Database.size();
+  }
 }
