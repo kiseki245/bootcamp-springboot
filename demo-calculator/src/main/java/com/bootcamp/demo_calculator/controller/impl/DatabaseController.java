@@ -7,10 +7,12 @@ import com.bootcamp.demo_calculator.controller.DatabaseOperation;
 import com.bootcamp.demo_calculator.model.Database;
 import com.bootcamp.demo_calculator.service.DatabaseService;
 
+
+// Normally, Controller layer autowired service layer
 @Controller
 @ResponseBody
 public class DatabaseController implements DatabaseOperation{
-  
+  // Controller -> Service -> Database (model)
   @Autowired
   private DatabaseService databaseService;
   @Override
@@ -43,6 +45,6 @@ public class DatabaseController implements DatabaseOperation{
 
   @Override
   public int getSize(){
-    return Database.size();
+    return databaseService.getSize();
   }
 }

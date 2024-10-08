@@ -12,8 +12,12 @@ public class DatabaseService {
   public String addString(String newString){
     return Database.addString(newString);
   }
-
+  public int getSize(){
+    return Database.size();
+  }
   public String[] getValue(){
     return Database.getValue();
   }
+
+  
 }

@@ -1,13 +1,13 @@
-package com.selfstudy.demo_sb_selfstudy;
+package com.bootcamp.demo_sb_restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoSbSelfstudyApplication {
+public class DemoSbRestapiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoSbSelfstudyApplication.class, args);
+		SpringApplication.run(DemoSbRestapiApplication.class, args);
 	}
-
+	
 }

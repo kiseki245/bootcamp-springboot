@@ -26,7 +26,7 @@ public class Bag {
   @JsonProperty(value = "booklist")
   private List<Book> books;
   private Color color;
-
+  
   public static enum Color {
     RED, YELLOW, BLUE;
   }
