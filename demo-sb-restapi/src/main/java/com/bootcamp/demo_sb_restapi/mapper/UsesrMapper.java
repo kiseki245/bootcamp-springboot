@@ -15,8 +15,13 @@ public class UsesrMapper {
     .phone(user.getPhone())
     .website(user.getWebsite())
     .build();
+  }
 
-  
-
+  public User map(UserEnity userEnity){
+    return User.builder()
+    .name(userEnity.getName())
+    .email(userEnity.getEmail())
+    .phone(userEnity.getPhone())
+    .build();
   }
 }

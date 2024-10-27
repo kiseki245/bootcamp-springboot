@@ -24,7 +24,7 @@ public class PostsEnity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long userId;
-  private Long Id;
+  private Long id;
   private String title;
   private String body;
 }

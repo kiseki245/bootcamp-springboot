@@ -1,13 +1,19 @@
 package com.bootcamp.demo_sb_restapi.controller.model;
 
 import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
   private Integer id;
   private String name;

@@ -1,0 +1,21 @@
+server:
+  port: 8081
+  
+# https://jsonplaceholder.typicode.com/albums
+api:
+  domain: jsonplaceholder.typicode.com
+  endpoint:
+    albums: /albums
+    users: /users
+    posts: /posts
+
+spring:
+  datasource:
+    driverClassName: "org.postgresql.Driver"
+    url: "jdbc:postgresql://localhost:5432/alburm_test"
+    username: "postgres"
+    password: "Admin!234"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop

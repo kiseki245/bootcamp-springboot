@@ -1,0 +1,42 @@
+package com.bootcamp.demo_restapi2.controller.impl;
+
+import java.util.Arrays;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.bootcamp.demo_restapi2.controller.UserController;
+import com.bootcamp.demo_restapi2.mapper.UserMapper;
+import com.bootcamp.demo_restapi2.model.User;
+import com.bootcamp.demo_restapi2.model.UserDTO;
+import com.bootcamp.demo_restapi2.repository.UserRepository;
+import com.bootcamp.demo_restapi2.service.UserService;
+
+@RestController
+public class UserControllerImpl implements UserController{
+  
+  @Autowired
+  private UserService userService;
+
+  @Autowired
+  private UserMapper userMapper;
+
+  public List<User> getUsers(){
+    
+    return Arrays.asList(userService.getUsers());
+  }
+
+  public User getUser(Long userId){
+    return userService.getUser(Long.valueOf(userId));
+  }
+
+  public User createUser(UserDTO userDTO){
+    String name = userDTO.getName();
+    String username = userDTO.getUsername();
+    String phone = userDTO.getPhone();
+    String email = userDTO.getEmail();
+    String website = userDTO.getWebsite();
+    return userMapper.map(userService.createUser(name, username, email, phone, website));
+    
+  }
+}

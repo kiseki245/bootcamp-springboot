@@ -53,5 +53,19 @@ public class PostsServiceImpl implements PostsService{
           }
           return null;
         }
+
+        @Override
+        public PostsEnity createNewPost(Long userId, Long id, String title, String body){
+          return postsRepository.save(PostsEnity.builder()
+          .userId(userId)
+          .id(id)
+          .title(title)
+          .body(body)
+          .build()
+          );
+
+          
+        }
+
     }
 

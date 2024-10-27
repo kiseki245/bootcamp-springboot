@@ -22,3 +22,4 @@ public interface ToyOperation {
   @PutMapping(value = ("newtoy/{name}/{price}"))
   Toy createToy(@PathVariable String name, @PathVariable int price);
 }
+ 

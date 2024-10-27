@@ -9,9 +9,18 @@ public class PostsMapper {
   public PostsEnity map(Posts posts){
     return PostsEnity.builder()
     .userId(posts.getUserId())
-    .Id(posts.getId())
+    .id(posts.getId())
     .title(posts.getTitle())
     .body(posts.getBody())
+    .build();
+  }
+
+  public Posts map(PostsEnity postsEnity){
+    return Posts.builder()
+    .userId(postsEnity.getUserId())
+    .id(postsEnity.getId())
+    .title(postsEnity.getTitle())
+    .body(postsEnity.getBody())
     .build();
   }
 }
