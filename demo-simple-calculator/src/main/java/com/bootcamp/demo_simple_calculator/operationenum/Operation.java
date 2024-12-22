@@ -14,7 +14,6 @@ public enum Operation {
   public String getOperator(){
     return this.operatorValue;
   }
-  public Operation
 
 
 }

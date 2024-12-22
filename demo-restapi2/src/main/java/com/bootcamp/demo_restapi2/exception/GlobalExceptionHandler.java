@@ -18,10 +18,10 @@ public class GlobalExceptionHandler {
     .build();
   }
 
-  // @ExceptionHandler(Exception.class)
-  // public GeneralResponse<Object> exceptionHandler(Exception e){
-  //   return GeneralResponse.<Object>builder()
-  //   .status(SysCode.FAIL)
-  //   .build();
-  // }
+  @ExceptionHandler(Exception.class)
+  public GeneralResponse<Object> exceptionHandler(Exception e){
+    return GeneralResponse.<Object>builder()
+    .status(SysCode.FAIL)
+    .build();
+  }
 }

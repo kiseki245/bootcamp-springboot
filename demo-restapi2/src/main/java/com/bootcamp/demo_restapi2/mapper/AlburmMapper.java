@@ -1,6 +1,7 @@
 package com.bootcamp.demo_restapi2.mapper;
 
 import org.springframework.stereotype.Component;
+import com.bootcamp.demo_restapi2.dto.GovAlburmDTO;
 import com.bootcamp.demo_restapi2.enity.AlburmEnity;
 import com.bootcamp.demo_restapi2.model.Alburm;
 
@@ -21,6 +22,11 @@ public class AlburmMapper {
     .title(alburmEnity.getTitle())
     .build();
   }
+  public static GovAlburmDTO mapforgov(Alburm alburm){
+    return GovAlburmDTO.builder()
+    .title(alburm.getTitle())
+    .build();
 
+  }
 
 }

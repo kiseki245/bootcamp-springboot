@@ -27,6 +27,7 @@ public class GovUserControllerImpl implements GovUserController{
     if (optUserEntity.isPresent()){
       UserEntity userEntity = optUserEntity.get();
       GovUserDTO govUserDto = GovUserMapper.map(userEntity);
+      // GovUserDTO govUserDto = new GovUserMapper().map(userEntity);
 
       return GeneralResponse.<GovUserDTO>builder()
       .status(SysCode.OK)

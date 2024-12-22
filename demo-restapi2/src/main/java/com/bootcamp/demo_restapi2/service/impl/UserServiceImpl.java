@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.bootcamp.demo_restapi2.enity.UserEntity;
+import com.bootcamp.demo_restapi2.exception.CustomException;
+import com.bootcamp.demo_restapi2.exception.ErrorCode;
 import com.bootcamp.demo_restapi2.infra.ApiUtil;
 import com.bootcamp.demo_restapi2.infra.Scheme;
 import com.bootcamp.demo_restapi2.model.User;
+import com.bootcamp.demo_restapi2.model.UserRequest;
 import com.bootcamp.demo_restapi2.repository.UserRepository;
 import com.bootcamp.demo_restapi2.service.UserService;
 
@@ -30,7 +33,7 @@ public class UserServiceImpl implements UserService {
   public User[] getUsers(){
     System.out.println(Scheme.HTTP.toString() + endpoint);
     User[] users = new RestTemplate().getForObject(apiUtil.getUrl(Scheme.HTTPS, endpoint), User[].class);
-    if(userRepository.findAll().size() == 0){
+
     for(User user : users){
       userRepository.save(UserEntity.builder()
       .name(user.getName())
@@ -42,9 +45,6 @@ public class UserServiceImpl implements UserService {
       );
 
     }
-  } else {
-    System.out.println("Data already exist");
-  }
     return users;
   }
 
@@ -55,10 +55,37 @@ public class UserServiceImpl implements UserService {
   }
   
   public UserEntity createUser(String name, String username, String email, String phone, String website){
-    return null;
+    List<UserEntity> users = userRepository.findAll();
+    for (UserEntity userEntity : users) {
+      if(userEntity.getPhone().equals(phone))
+          throw new CustomException(ErrorCode.USER_ALREADY_EXIST);
+    }
+    return userRepository.save(UserEntity.builder()
+    .name(name)
+    .username(username)
+    .email(email)
+    .phone(phone)
+    .website(website)
+    .build()
+    );
   }
 
   public Optional<UserEntity> getUserFromDB(Long id){
     return this.userRepository.findById(id);
   }
+
+  public User updateUser(Long userId, UserRequest userRequest){
+    Optional<UserEntity> targetUser = userRepository.findById(Long.valueOf(userId));
+
+    if(targetUser.isPresent()){
+      targetUser.get().setName(userRequest.getName());
+      targetUser.get().setUsername(userRequest.getUsername());
+      targetUser.get().setEmail(userRequest.getEmail());
+      targetUser.get().setPhone(userRequest.getPhone());
+      targetUser.get().setWebsite(userRequest.getWebsite());
+      userRepository.save(targetUser.get());
+    }
+    throw new CustomException(ErrorCode.USER_ID_NOT_EXIST);
+  }
+
 }

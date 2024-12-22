@@ -1,0 +1,61 @@
+h1 {
+  text-align: center;
+  color: skyblue;
+  background-color: whitesmoke;
+}
+
+.style-table {
+  font-size: 15px;
+  border: 1px solid #ddd;
+  margin: 25px auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.style-table thead tr {
+  background-color: rgb(194, 220, 143);
+  color: #383333;
+  text-align: left;
+  font-weight: bold;
+}
+
+.style-table tbody, 
+.style-table td:hover {
+  background-color: #f5f5f5;
+}
+
+.coin-details {
+  margin-left: 5px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.coin-name {
+  font-size: 15px;
+  margin-right: 7px;
+  font-weight: bold;
+}
+.coin-symbol {
+  font-size: 15px;
+  margin-right: 7px;
+  font-weight: bold;
+}
+
+.last-updated {
+  color: grey;
+  font-size: 9px;
+  font-style: italic;
+}
+
+.up {
+  color: rgb(20, 236, 20)
+}
+
+.down {
+  color: red
+}
+
+.neutral {
+  color: grey
+}
